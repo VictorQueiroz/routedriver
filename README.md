@@ -8,7 +8,7 @@ bower install --save routedriver
 ```
 
 ### Usage
-```
+```js
 var router = new window.router.Router();
 router.when('/home/index/{username}/page/{pageNumber?}', {
   templateUrl: 'home/index.html'
