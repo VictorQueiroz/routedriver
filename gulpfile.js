@@ -3,23 +3,26 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var wrapper = require('gulp-wrapper');
 
+var footer = '\
+  var routes = {};\
+  window.router = {\
+    Router: Router,\
+    routes: routes,\
+    router: new Router(routes)\
+  };\
+}(window));';
+
 gulp.task('build', function() {
 	gulp.src([
-		'helpers.js',
-		'EventEmitter.js',
-		'Router.js'
+		'src/helpers.js',
+		'src/EventEmitter.js',
+		'src/Router.js'
 	])
-	.pipe(concat('routedriver'))
+	.pipe(concat('routedriver.js'))
 	.pipe(wrapper({
-		header: '(function() {',
-		footer: '\
-      var routes = {};\
-      window.router = {\
-				Router: Router,
-        routes: routes,
-        router: new Router(routes)
-			};\
-		}());'
+		header: '(function(window) {',
+		footer: footer
 	}))
-	.pipe(uglify());
+	.pipe(uglify())
+  .pipe(gulp.dest('build'));
 });
