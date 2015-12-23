@@ -2,6 +2,9 @@
 
 This module was made to be used as a wrapper. Based on AngularJS 1.x router (ngRoute).
 
+### Dependencies
+- [eventemitter](https://github.com/VictorQueiroz/eventemitter)
+
 ### Installation
 ```
 bower install --save routedriver

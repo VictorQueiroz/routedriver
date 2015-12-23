@@ -1,3 +1,5 @@
+var EventEmitter = eventemitter.EventEmitter;
+
 function Router(routes) {
 	EventEmitter.call(this);
 

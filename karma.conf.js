@@ -15,6 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'bower_components/eventemitter/build/eventemitter.js',
       'src/helpers.js',
       'src/*.js',
       'test/*.js'
